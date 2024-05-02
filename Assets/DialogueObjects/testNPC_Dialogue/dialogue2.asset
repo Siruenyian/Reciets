@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08b7df6eddbafa45a0df4cb9b79cd30, type: 3}
+  m_Name: dialogue2
+  m_EditorClassIdentifier: 
+  Dialoguepicleft: {fileID: 21300000, guid: b233579cebeabec408e1398909f5c1ed, type: 3}
+  Dialoguepicright: {fileID: 0}
+  background: {fileID: 21300000, guid: 4675393995c16f94d80874e62dd82749, type: 3}
+  dialogue:
+  - You sure talk big for someone in punching distance
+  - PREPARE FOR BATTLE
+  - AND UH... MAKE IT DOUBLE?
+  responses: []
+  isEnd: 0
+  isLeft: 1
+  isRight: 0
+  dialogueObj: {fileID: 0}
