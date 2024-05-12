@@ -5,7 +5,7 @@ public class DialogueInteraction : MonoBehaviour
 {
     public NPC nPC;
 
-    private DialogueObj dialogueObj { get; set; }
+    public DialogueObj dialogueObj { get; set; }
 
     private void Start()
     {

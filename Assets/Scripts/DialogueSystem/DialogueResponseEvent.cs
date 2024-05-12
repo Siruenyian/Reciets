@@ -16,7 +16,7 @@ public class DialogueResponseEvent : MonoBehaviour
     private void Start()
     {
         dialogueActivator = this.GetComponent<DialogueActivator>();
-        //dialogueObj = dialogueActivator.nPC.npcDialogue;
+        // dialogueObj = dialogueActivator.nPC.npcDialogue;
     }
 
     public void OnValidate()

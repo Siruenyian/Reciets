@@ -40,6 +40,10 @@ public class DialogueUI : MonoBehaviour
 
     public void showDialogue(DialogueObj dialogueobj, Sprite sprite, Sprite sprite1)
     {
+        // if (isOpen)
+        // {
+        //     return;
+        // }
         for (int i = 0; i < toggleButtons.Length; i++)
         {
             toggleButtons[i].interactable = false;

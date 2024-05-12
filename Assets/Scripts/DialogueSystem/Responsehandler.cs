@@ -66,6 +66,7 @@ public class Responsehandler : MonoBehaviour
         if (responseEvents != null && responseIndex <= responseEvents.Length)
         {
             responseEvents[responseIndex].OnPickedResponse?.Invoke();
+            // return;
         }
         responseEvents = null;
 
@@ -75,9 +76,11 @@ public class Responsehandler : MonoBehaviour
         }
         else
         {
+            Debug.Log("closing dialogue");
             dialogueUI.CloseDialogue();
+            // return;
         }
         //this little shit shit ruined 2 of my games
-        //dialogueUI.showDialogue(response.Dialogueobject, response.Dialogueobject.Dialoguepic);
+        // dialogueUI.showDialogue(response.Dialogueobject, response.Dialogueobject.Dialoguepicright, response.Dialogueobject.Dialoguepicleft);
     }
 }

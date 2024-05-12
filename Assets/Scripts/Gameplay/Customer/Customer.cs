@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -7,24 +8,24 @@ namespace reciets
 {
     public class Customer : MonoBehaviour
     {
+        [Header("Customer Part")]
         [SerializeField] private FoodDetail desiredFood;
-        [SerializeField] private int taste;
-        [SerializeField] private int nutrition;
-        [SerializeField] private int popularity;
+        [SerializeField] private int tasteModifier;
+        [SerializeField] private int nutritionModifier;
+        [SerializeField] private int popularityModifier;
+
         private void Awake()
         {
             Modifier();
         }
+
         public void Modifier()
         {
-            desiredFood.detailDict[IngredientTrait.TASTE] += taste;
-            desiredFood.detailDict[IngredientTrait.NUTRITION] += nutrition;
-            desiredFood.detailDict[IngredientTrait.POPULARITY] += popularity;
+            desiredFood.detailDict[IngredientTrait.TASTE] += tasteModifier;
+            desiredFood.detailDict[IngredientTrait.NUTRITION] += nutritionModifier;
+            desiredFood.detailDict[IngredientTrait.POPULARITY] += popularityModifier;
         }
-        public void Show()
-        {
-            // show speech bubble
-        }
+
         public bool Compare(FoodDetail foodDetail1, FoodDetail foodDetail2)
         {
             if (
