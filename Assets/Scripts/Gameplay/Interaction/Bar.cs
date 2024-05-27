@@ -10,10 +10,11 @@ public class Bar : MonoBehaviour
 {
     public Image barImage;
     // public TextMeshProUGUI craftingText;
-    [HideInInspector] public float maxValue = 100f;
+    public float maxValue = 100f;
     private float value;
     float lerpSpeed;
-
+    [SerializeField] private Color startColor = Color.blue;
+    [SerializeField] private Color endColor = Color.white;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +42,7 @@ public class Bar : MonoBehaviour
 
     void ColorChanger()
     {
-        Color staminaColor = Color.Lerp(Color.white, Color.red, (value / maxValue));
+        Color staminaColor = Color.Lerp(startColor, endColor, (value / maxValue));
         barImage.color = staminaColor;
     }
 

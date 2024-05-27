@@ -10,6 +10,7 @@ namespace reciets
     {
         [Header("SPAWNING stuff")]
         [SerializeField] private Transform spawnpoint;
+        [SerializeField] private GameObject prefab;
         [Header("MANAGING stuff")]
         [SerializeField] private List<GameObject> customers = new List<GameObject>();
         [SerializeField] int queueSize = 3;
@@ -18,39 +19,39 @@ namespace reciets
         Vector3 spacing = new Vector3(0, 0, -1);
         List<Vector3> customerPositions = new List<Vector3>();
         WaitingQueue waitingQueue;
+        [SerializeField] private Bar scoreBar;
+
         private void Start()
         {
             for (int i = 0; i < queueSize; i++)
             {
                 customerPositions.Add(firstPos + spacing * positionSize * i);
             }
-            waitingQueue = new WaitingQueue(customerPositions);
+            waitingQueue = new WaitingQueue(customerPositions, scoreBar);
 
         }
-        public void GOGOGOGOO()
+        public void GoIn()
         {
-            if (waitingQueue.CanAddGuest())
+            Debug.Log(customers.Count);
+            if (customers.Count != 0 && waitingQueue.CanAddGuest())
             {
                 waitingQueue.AddCustomer(customers[0]);
+                // Remove the customer from the list
                 customers.RemoveAt(0);
+                return;
             }
+            Debug.Log("Queue penuh atau ga ada customer");
         }
-        public void GTFOO()
+
+        public void GoOut()
         {
-            GameObject customer = waitingQueue.GetFirstInQueue();
-            if (customer != null)
-            {
-                CustomerMovement customerMovement = customer.GetComponent<CustomerMovement>();
-                customerMovement.MoveTo(new Vector3(12, 0, 12), () =>
-                {
-                    Debug.Log(" boutta destroy " + customer.name);
-                    Destroy(customer);
-                });
-            }
+            waitingQueue.GetOut(false);
+
         }
         public void SpawnCustomer()
         {
-            Instantiate(customers[0], spawnpoint);
+            GameObject newCustomer = Instantiate(prefab, spawnpoint);
+            customers.Add(newCustomer);
         }
         private void OnDrawGizmos()
         {
@@ -68,13 +69,15 @@ namespace reciets
         private List<GameObject> customerList;
         private List<Vector3> posList;
         private Vector3 entrancePos;
+        private Bar bar;
 
-        public WaitingQueue(List<Vector3> posList)
+        public WaitingQueue(List<Vector3> posList, Bar bar)
         {
             this.posList = posList;
             entrancePos = posList[posList.Count - 1];
             // + new Vector3(0, 0, -8f);x
             customerList = new List<GameObject>();
+            this.bar = bar;
         }
         public bool CanAddGuest()
         {
@@ -82,19 +85,62 @@ namespace reciets
         }
         public void AddCustomer(GameObject customer)
         {
-            customerList.Add(customer.gameObject);
+            customerList.Add(customer);
             CustomerMovement customerMovement = customer.GetComponent<CustomerMovement>();
             customerMovement.MoveTo(entrancePos, () =>
             {
-                Debug.Log(" 1 " + customer.name);
+                Debug.Log(" masuk queue " + customer.name);
                 customerMovement.MoveTo(posList[customerList.IndexOf(customer)], () =>
                 {
-                    Debug.Log(" 2 " + customer.name);
+                    Debug.Log(" sampai ke posisi " + customer.name);
+                    CheckPosition(customer);
                 });
             });
 
         }
+        private void CheckPosition(GameObject customer)
+        {
+            if (customer = customerList[0])
+            {
+                // Debug.Log("huhaaa");
+                GameObject child = customer.transform.GetChild(0).gameObject;
+                child.SetActive(true);
+                // child.GetComponent<CustomerInteraction>().OrderDone += GetOut;
+                CustomerInteraction customerInteraction = child.GetComponent<CustomerInteraction>();
+                if (customerInteraction != null && !customerInteraction.IsSubscribedToOrderDone())
+                {
+                    customerInteraction.OrderDone += GetOut;
+                    customerInteraction.SetSubscribedToOrderDone(true); // Set a flag to indicate subscription
+                }
+            }
+        }
+        public void GetOut(bool isDone)
+        {
+            GameObject customer = GetFirstInQueue();
+            if (customer != null)
+            {
+                GameObject child = customer.transform.GetChild(0).gameObject;
+                if (isDone)
+                {
+                    bar.Increase(2);
+                }
+                else
+                {
+                    bar.Decrease(1);
+                }
+                child.GetComponent<CustomerInteraction>().OrderDone -= GetOut;
+                child.SetActive(false);
+                CustomerMovement customerMovement = customer.GetComponent<CustomerMovement>();
 
+                // customerMovement.KillSelf();
+
+                customerMovement.MoveTo(new Vector3(12, 0, 12), () =>
+                {
+                    Debug.Log(" boutta destroy " + customer.name);
+                    customerMovement.KillSelf();
+                });
+            }
+        }
         public GameObject GetFirstInQueue()
         {
             if (customerList.Count == 0)
@@ -103,7 +149,9 @@ namespace reciets
             }
             else
             {
+
                 GameObject customer = customerList[0];
+                // msh jalan
                 customerList.RemoveAt(0);
                 RelocateMembers();
                 return customer;
@@ -114,7 +162,13 @@ namespace reciets
         {
             for (int i = 0; i < customerList.Count; i++)
             {
-                customerList[i].GetComponent<CustomerMovement>().MoveTo(posList[i]);
+                GameObject customer = customerList[i];
+                customer.GetComponent<CustomerMovement>().MoveTo(posList[i], () =>
+                {
+                    // Jd gini, kan pake coroutine, kadang dia referencya nga cosntant
+                    // Debug.Log(customer);
+                    CheckPosition(customer);
+                });
             }
         }
     }

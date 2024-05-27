@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace reciets
@@ -12,7 +12,13 @@ namespace reciets
         [SerializeField] private DialogueObj brokeDialogue;
         [SerializeField] private DialogueObj accDialogue;
         [SerializeField] private DialogueObj rejectedDialogue;
+        public bool isorderDone = false;
         private CharacterInteraction characterInteraction = null;
+
+        public delegate void OrderDoneEventHandler(bool isSatisfied);
+        public event OrderDoneEventHandler OrderDone;
+
+
         public void Interact(CharacterInteraction characterInteraction)
         {
             // talk and submit
@@ -20,6 +26,19 @@ namespace reciets
             dialogueInteraction.Interact(characterInteraction);
 
         }
+
+        private bool subscribedToOrderDone = false;
+
+        public bool IsSubscribedToOrderDone()
+        {
+            return subscribedToOrderDone;
+        }
+
+        public void SetSubscribedToOrderDone(bool subscribed)
+        {
+            subscribedToOrderDone = subscribed;
+        }
+
 
         public void TalktoCustomer()
         {
@@ -31,18 +50,13 @@ namespace reciets
                 // THIS, THIS IS BAD, SO BAD I DON'T EVEN WANNA LOOK AT IT
                 // BUT IT WORKS??? HOW IN THE ----
                 dialogueInteraction.dialogueObj.Responses[0].Dialogueobject = brokeDialogue;
-                // customerMovement.MoveTo(new Vector3(10, 1, 0), () =>
-                // {
-                //     Debug.Log("NYAAHAHAHAHAHAH");
-                // });
-                // dialogueResponseEvent.DialogueObj.Responses[0].Dialogueobject = brokeDialogue;
-                // dialogueResponseEvent.DialogueObj.dialogueObj = brokeDialogue;
-                // characterInteraction.DialogueUI.showDialogue(brokeDialogue, brokeDialogue.Dialoguepicleft, brokeDialogue.Dialoguepicright);
-                // fire dialogue again
-                // dialogueInteraction.Interact(characterInteraction);
-                // characterInteraction.DialogueUI.CloseDialogue();
+
+                isorderDone = false;
+
+                // OrderDone?.Invoke();
                 return;
             }
+            // change this bool to an int value so it can be passed trough
             bool isConfirmed = customer.Check(
             characterInteraction.GetInventory()
             );
@@ -51,16 +65,33 @@ namespace reciets
             {
                 characterInteraction.RemoveInventory();
                 dialogueInteraction.dialogueObj.Responses[0].Dialogueobject = accDialogue;
+                isorderDone = true;
+                StartCoroutine(AwaitDialogue(dialogueInteraction, true));
 
             }
             else
             {
                 Debug.Log("is garabage");
+                characterInteraction.RemoveInventory();
                 dialogueInteraction.dialogueObj.Responses[0].Dialogueobject = rejectedDialogue;
+                isorderDone = false;
+                StartCoroutine(AwaitDialogue(dialogueInteraction, false));
+
             }
         }
+        private IEnumerator AwaitDialogue(DialogueInteraction dialogueInteraction, bool isSatisfied)
+        {
+            // unreliable soalnya dialogue buka tutup
+            while (dialogueInteraction.isDone == false)
+            {
+                Debug.Log(dialogueInteraction.isDone);
+                yield return null; // Wait until the condition is met
+            }
+            // Fire the event
+            OrderDone?.Invoke(isSatisfied);
+        }
         // Start is called before the first frame update
-        private void OnTriggerEnter(Collider collision)
+        private void OnTriggerStay(Collider collision)
         {
             if (collision.CompareTag("Player") && collision.TryGetComponent(out CharacterInteraction characterInteraction))
             {
@@ -78,3 +109,14 @@ namespace reciets
         }
     }
 }
+// customerMovement.MoveTo(new Vector3(10, 1, 0), () =>
+// {
+//     Debug.Log("NYAAHAHAHAHAHAH");
+// });
+// dialogueResponseEvent.DialogueObj.Responses[0].Dialogueobject = brokeDialogue;
+// dialogueResponseEvent.DialogueObj.dialogueObj = brokeDialogue;
+// characterInteraction.DialogueUI.showDialogue(brokeDialogue, brokeDialogue.Dialoguepicleft, brokeDialogue.Dialoguepicright);
+// fire dialogue again
+// dialogueInteraction.Interact(characterInteraction);
+
+// characterInteraction.DialogueUI.CloseDialogue();

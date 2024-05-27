@@ -34,7 +34,8 @@ namespace reciets
         void Update()
         {
             Animate();
-            FlipSpite();
+            // HandleRotation();
+            FlipSelf();
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             playerInput = new Vector3(horizontal, 0, vertical).normalized;
@@ -82,7 +83,7 @@ namespace reciets
             if (playerInput == Vector3.zero) return;
 
             var rot = Quaternion.LookRotation(playerInput.ToIso(), Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 360 * Time.deltaTime);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot * transform.localRotation, 360 * Time.deltaTime);
         }
 
 
@@ -96,6 +97,36 @@ namespace reciets
             {
                 sprite.flipX = false;
             }
+        }
+        private Quaternion initialRotation;
+        private void Awake()
+        {
+            initialRotation = transform.localRotation;
+        }
+        void FlipSelf()
+        {
+
+            // if (playerInput.x > 0)
+            // {
+            //     transform.localRotation = initialRotation;
+            // }
+            // else if (playerInput.x < 0)
+            // {
+            //     transform.localRotation = initialRotation * Quaternion.Euler(0, 180, 0);
+            // }
+            Vector3 localScale = transform.localScale;
+
+            // Check the direction and flip if needed
+            if (playerInput.x > 0 && localScale.x < 0)
+            {
+                localScale.x *= -1; // Flip to face right
+            }
+            else if (playerInput.x < 0 && localScale.x > 0)
+            {
+                localScale.x *= -1; // Flip to face left
+            }
+
+            transform.localScale = localScale;
         }
         private void Animate()
         {

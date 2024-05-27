@@ -6,20 +6,17 @@ using UnityEngine.EventSystems;
 public class CustomerMovement : MonoBehaviour
 {
     [Header("Movement Part")]
-    private Rigidbody rb;
+    private Rigidbody rb = null;
     private Animator animator;
     private Vector3 playerInput;
     [SerializeField] private float moveSpeed = 3.0f;
     [SerializeField] private Vector3 forceToApply;
     [SerializeField] private float forceDamping = 1.2f;
-
-
-
     [SerializeField] private bool isMoving = false;
 
     // public Transform targetPos;
     private float moveTreshold = 0.2f;
-    Vector3 destination;
+    Vector3 destination = Vector3.one;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -96,6 +93,7 @@ public class CustomerMovement : MonoBehaviour
         }
         rb.velocity = moveForce;
     }
+
     private void Animate()
     {
         if (isMoving)
@@ -141,13 +139,17 @@ public class CustomerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawRay(transform.position, rb.velocity);
+        // Gizmos.DrawRay(transform.position, rb.velocity);
         Gizmos.DrawSphere(destination, 0.5f);
         // Gizmos.color = Color.green;
         // Gizmos.DrawRay(transform.position, playerInput);
     }
-    Vector3 CopyVector3(Vector3 original)
+    public void EnableInteractor()
     {
-        return new Vector3(original.x, original.y, original.z);
+
+    }
+    public void KillSelf()
+    {
+        Destroy(this.gameObject);
     }
 }
