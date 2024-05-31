@@ -15,6 +15,7 @@ namespace reciets
         [SerializeField] private SpriteRenderer slotSprite;
         // Start is called before the first frame update
         [SerializeField] private DialogueUI dialogueUI;
+        [SerializeField] private BottomMenu bottomMenu;
         public DialogueUI DialogueUI => dialogueUI;
         public Iinteractable Interactable { get; set; }
         private Rigidbody rb;
@@ -39,23 +40,43 @@ namespace reciets
             ingredientonHand = ingredientDetail;
             // Debug.Log(ingredientonHand.name);
             slotSprite.sprite = ingredientDetail.sprite;
+            bottomMenu.SetItemSprite(ingredientDetail.sprite);
         }
         public void RemoveInventory()
         {
             isSlotFull = false;
             ingredientonHand = null;
             slotSprite.sprite = null;
+            // sussy code
+            bottomMenu.SetItemSprite(null);
+
         }
         // Update is called once per frame
+        public void FreezeMovement()
+        {
+            // Freeze the Rigidbody's position and rotation
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        public void UnfreezeMovement()
+        {
+
+            rb.constraints = constraints;
+
+        }
         void Update()
         {
 
-            if (dialogueUI.isOpen)
-            {
-                rb.isKinematic = true;
-                return;
-            }
-            rb.isKinematic = false;
+            // if (dialogueUI.isOpen)
+            // {
+            //     // rb.isKinematic = true;
+            //     FreezeMovement();
+            //     return;
+            // }
+            // else
+            // {
+            //     UnfreezeMovement();
+            // }
+            // rb.isKinematic = false;
 
             if (Input.GetKeyDown(interact))
             {

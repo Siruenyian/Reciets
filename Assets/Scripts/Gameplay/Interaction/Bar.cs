@@ -8,13 +8,15 @@ using reciets;
 
 public class Bar : MonoBehaviour
 {
-    public Image barImage;
+    [SerializeField] private Image barImage;
     // public TextMeshProUGUI craftingText;
     public float maxValue = 100f;
-    private float value;
+    public float value;
     float lerpSpeed;
     [SerializeField] private Color startColor = Color.blue;
     [SerializeField] private Color endColor = Color.white;
+    [SerializeField] private float lerpMultiplier = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class Bar : MonoBehaviour
         {
             value = maxValue;
         }
-        lerpSpeed = 3f * Time.deltaTime;
+        lerpSpeed = lerpMultiplier * Time.deltaTime;
         Filler();
         ColorChanger();
     }
