@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class Fryer : CraftingBase
+public class Fryer : BaseMixer
 {
 
     [SerializeField] private Bar progressBar;
@@ -54,9 +54,12 @@ public class Fryer : CraftingBase
         if (!isCooking) return;
         StopCoroutine(cookingCoroutine);
         base.EnableSlots();
+        float progress = progressBar.value;
         progressBar.Reset();
         isCooking = false;
         UpdateButtonLabel();
+        // 1st param is in time
+        DetermineResult(progress / processDuration, sliderValue);
     }
     private void UpdateButtonLabel()
     {
@@ -85,33 +88,42 @@ public class Fryer : CraftingBase
     private IEnumerator Cook()
     {
         float elapsedTime = 0f;
-        base.DisableSlots();
         while (elapsedTime < processDuration)
         {
-            elapsedTime += Time.deltaTime;
-            float progress = elapsedTime;
-            // / processDuration;
-            Debug.Log(progress);
-            progressBar.value = progress;
-
+            progressBar.value += Time.deltaTime; // Adjust based on your cooking speed
             yield return null;
         }
-
-        progressBar.Reset();
-        if (sliderValue == 3)
+        StopCooking();
+    }
+    private void DetermineResult(float progress, float oilAmount)
+    {
+        if (progress < 0.5f)
         {
-            base.Process(1);
+            Debug.Log("Under-cooked result");
+            base.Process(-1);
+            // Create alternate result for under-cooked
         }
-        else if (sliderValue == 2)
+        else if (progress >= 0.5f && progress < 1f)
         {
-            base.Process(2);
+            Debug.Log("Partially cooked result");
+            if (oilAmount == 3)
+            {
+
+                base.Process(1);
+            }
+            else
+            {
+                base.Process(2);
+
+            }
+            // Create alternate result for partially cooked
         }
         else
         {
-            base.Process(-1);
+            Debug.Log("Fully cooked result");
+            base.Process(1);
+
+            // Create the default result
         }
-        base.EnableSlots();
-        isCooking = false;
-        UpdateButtonLabel();
     }
 }

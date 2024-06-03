@@ -8,7 +8,6 @@ public class BGMManager : MonoBehaviour
     private void Awake()
     {
         Source = GetComponentsInChildren<AudioSource>();
-
     }
     // Start is called before the first frame update
 

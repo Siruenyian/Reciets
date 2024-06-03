@@ -1,21 +1,18 @@
+using reciets;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BottomMenu : MonoBehaviour
 {
-    [SerializeField] Image itemslotImage;
-    Sprite originalSprite;
+    [SerializeField] ItemSlot itemSlot;
 
-    private void Start()
+
+    public void SetItemSprite(ItemDetail itemDetail)
     {
-        originalSprite = itemslotImage.sprite;
-    }
-    public void SetItemSprite(Sprite itemSprite)
-    {
-        itemslotImage.sprite = itemSprite;
+        itemSlot.SetSlot(itemDetail.sprite, itemDetail);
     }
     public void RemoveItemSprite()
     {
-        itemslotImage.sprite = null;
+        itemSlot.ResetSlot();
     }
 }

@@ -34,13 +34,13 @@ namespace reciets
         {
             return ingredientonHand;
         }
-        public void SetInventory(ItemDetail ingredientDetail)
+        public void SetInventory(ItemDetail itemDetail)
         {
             isSlotFull = true;
-            ingredientonHand = ingredientDetail;
+            ingredientonHand = itemDetail;
             // Debug.Log(ingredientonHand.name);
-            slotSprite.sprite = ingredientDetail.sprite;
-            bottomMenu.SetItemSprite(ingredientDetail.sprite);
+            slotSprite.sprite = itemDetail.sprite;
+            bottomMenu.SetItemSprite(itemDetail);
         }
         public void RemoveInventory()
         {
@@ -48,7 +48,7 @@ namespace reciets
             ingredientonHand = null;
             slotSprite.sprite = null;
             // sussy code
-            bottomMenu.SetItemSprite(null);
+            bottomMenu.RemoveItemSprite();
 
         }
         // Update is called once per frame

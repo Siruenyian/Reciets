@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f61d4d035f8d3441a286aa2e3c15a58, type: 3}
+  m_Name: Tempe
+  m_EditorClassIdentifier: 
+  itemName: Tempe
+  sprite: {fileID: 21300000, guid: 78607e38a8d918140882f66ee1c6999d, type: 3}
+  description: Tempe, raw
+  ingredientTrait: 1
+  value: 5

@@ -8,10 +8,11 @@ public class HoverTipManager_Script : MonoBehaviour
 {
     public TextMeshProUGUI tipText;
     public RectTransform tipWindow;
-    [SerializeField] [Range(0.0f, 10.0f)] private float offsetX;
-    [SerializeField] [Range(0.0f, 10.0f)] private float offsetY;
+    [SerializeField][Range(0.0f, 10.0f)] private float offsetX = 1f;
+    [SerializeField][Range(0.0f, 10.0f)] private float offsetY = 1f;
+    [SerializeField] private float padding = 20f;
     // Start is called before the first frame update
-    public static Action<string,Vector2> OnMouseHover;
+    public static Action<string, Vector2> OnMouseHover;
 
     public static Action OnMouseLoseFocus;
     private void OnEnable()
@@ -32,12 +33,10 @@ public class HoverTipManager_Script : MonoBehaviour
     private void ShowTip(string tip, Vector2 mousePos)
     {
         tipText.text = tip;
-        tipWindow.sizeDelta = new Vector2(tipText.preferredWidth>200 ? 200 : tipText.preferredWidth,tipText.preferredHeight);
+        tipWindow.sizeDelta = new Vector2(tipText.preferredWidth > 200 ? 200 : tipText.preferredWidth + padding, tipText.preferredHeight + padding);
         tipWindow.gameObject.SetActive(true);
-        Debug.Log(mousePos.x);
-        Debug.Log("sizedelta"+tipWindow.sizeDelta.x);
-        //Vector2 hello = (mousePos.x + tipWindow.sizeDelta.x * 2, mousePos.y);
-        tipWindow.transform.position = new Vector2(mousePos.x+offsetX, mousePos.y+offsetY);
+        Debug.Log(mousePos.x + " " + mousePos.y);
+        tipWindow.transform.position = new Vector2(mousePos.x + offsetX, mousePos.y + offsetY);
         //
     }
     private void HideTip()

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Oven : CraftingBase
+public class Oven : BaseMixer
 {
     [SerializeField] private Bar progressBar;
     [SerializeField] private Slider tempSlider;

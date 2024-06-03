@@ -237,3 +237,7 @@ public class CraftingBase : MonoBehaviour
         ingredients[-1] = item;
     }
 }
+public enum CookingMethod
+{
+    StoveOven, Mixer, CuttingStation
+}

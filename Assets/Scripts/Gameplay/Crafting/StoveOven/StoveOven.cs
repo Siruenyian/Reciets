@@ -12,7 +12,7 @@ public class StoveOven : MonoBehaviour, Iinteractable
     [SerializeField] private CinemachineVirtualCamera transitionCam = null;
     [SerializeField] private Fryer fryer;
     [SerializeField] private Oven oven;
-    [SerializeField] private Stove stove;
+    [SerializeField] private Boiler boiler;
 
     private LayerMask layersToDisable;
     private void Start()
@@ -49,9 +49,9 @@ public class StoveOven : MonoBehaviour, Iinteractable
         {
             characterInteraction.Interactable = this;
             characterI = characterInteraction;
-            // fryer.CharacterI = characterI;
+            fryer.CharacterI = characterI;
             oven.CharacterI = characterI;
-            // stove.CharacterI = characterI;
+            boiler.CharacterI = characterI;
         }
     }
     private void OnTriggerExit(Collider collision)
@@ -60,9 +60,9 @@ public class StoveOven : MonoBehaviour, Iinteractable
         {
             characterInteraction.Interactable = null;
             characterI = null;
-            // fryer.CharacterI = characterI;
+            fryer.CharacterI = characterI;
             oven.CharacterI = characterI;
-            // stove.CharacterI = characterI;
+            boiler.CharacterI = characterI;
         }
     }
 
