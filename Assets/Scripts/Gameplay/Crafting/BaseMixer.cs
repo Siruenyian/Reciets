@@ -194,7 +194,8 @@ public class BaseMixer : MonoBehaviour
         int popularity = 0;
         // crafting logic here
         // 0 index blyad
-        foreach (var ingredient in ingredients)
+        var ingredient2 = ingredients.OrderBy(x => x.Key);
+        foreach (var ingredient in ingredient2)
         {
             // Debug.Log(ingredient.Key + " " + ingredient.Value);
             // -1 is reserved lmao
@@ -203,7 +204,7 @@ public class BaseMixer : MonoBehaviour
                 if (ingredient.Value is IngredientDetail)
                 {
                     result += ingredient.Value.itemName;
-                    Debug.Log(result);
+                    Debug.Log(ingredient.Key);
                     IngredientDetail a = (IngredientDetail)ingredient.Value;
                     switch (a.ingredientTrait)
                     {
@@ -226,6 +227,7 @@ public class BaseMixer : MonoBehaviour
         Debug.Log("sending string to manager: " + result);
         ItemDetail item = ItemCraftManager.Instance.CombineByName(result, taste, nutrition, popularity);
         // Debug.Log();
+
         ingredients.Clear();
         for (int i = 0; i < slots.Count; i++)
         {

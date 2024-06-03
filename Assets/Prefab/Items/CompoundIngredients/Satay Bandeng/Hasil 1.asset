@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Spices
   sprite: {fileID: 21300000, guid: 854212c85c945f8429d99c33d1cf98e4, type: 3}
   description: Grounded up spices for the dish Satay Bandeng
-  ingredientTrait: 2
+  ingredientTrait: 0
   value: 7

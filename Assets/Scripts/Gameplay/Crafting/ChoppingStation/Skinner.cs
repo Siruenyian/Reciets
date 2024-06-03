@@ -8,7 +8,6 @@ public class Skinner : BaseMixer
     [SerializeField] private Bar progressBar;
     [SerializeField] private float processDuration = 5f;
     [SerializeField] private Button toggleButton;
-    [SerializeField] private TextMeshProUGUI temperatureText;
     private Coroutine cookingCoroutine;
     private bool isCooking = false;
 
@@ -16,6 +15,7 @@ public class Skinner : BaseMixer
     {
         toggleButton.onClick.AddListener(ToggleCooking);
         progressBar.maxValue = processDuration;
+        UpdateButtonLabel();
         base.Start();
     }
 
@@ -77,6 +77,6 @@ public class Skinner : BaseMixer
     }
     private void DetermineResult(float progress)
     {
-        base.Process(1);
+        base.Process(0);
     }
 }

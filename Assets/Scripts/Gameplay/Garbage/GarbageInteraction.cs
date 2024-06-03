@@ -14,7 +14,7 @@ namespace reciets
         }
 
         // Start is called before the first frame update
-        private void OnTriggerEnter(Collider collision)
+        private void OnTriggerStay(Collider collision)
         {
             Debug.Log("test");
             if (collision.CompareTag("Player") && collision.TryGetComponent(out CharacterInteraction characterInteraction))

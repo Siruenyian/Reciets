@@ -20,6 +20,7 @@ public class Oven : BaseMixer
         progressBar.maxValue = processDuration;
         tempSlider.onValueChanged.AddListener(OnSliderValueChanged);
         UpdateTemperatureText(tempSlider.value);
+        UpdateButtonLabel();
         base.Start();
     }
     private void UpdateTemperatureText(float temperature)

@@ -35,7 +35,7 @@ public class HoverTipManager_Script : MonoBehaviour
         tipText.text = tip;
         tipWindow.sizeDelta = new Vector2(tipText.preferredWidth > 200 ? 200 : tipText.preferredWidth + padding, tipText.preferredHeight + padding);
         tipWindow.gameObject.SetActive(true);
-        Debug.Log(mousePos.x + " " + mousePos.y);
+        // Debug.Log(mousePos.x + " " + mousePos.y);
         tipWindow.transform.position = new Vector2(mousePos.x + offsetX, mousePos.y + offsetY);
         //
     }

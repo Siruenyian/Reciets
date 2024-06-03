@@ -13,13 +13,14 @@ public class Boiler : BaseMixer
     private Coroutine cookingCoroutine;
     private bool isCooking = false;
     private float sliderValue;
-
+    [SerializeField] private bool isShook = true;
     protected override void Start()
     {
         toggleButton.onClick.AddListener(ToggleCooking);
         progressBar.maxValue = processDuration;
         tempSlider.onValueChanged.AddListener(OnSliderValueChanged);
         UpdateTemperatureText(tempSlider.value);
+        UpdateButtonLabel();
         base.Start();
     }
     private void UpdateTemperatureText(float temperature)
@@ -106,7 +107,7 @@ public class Boiler : BaseMixer
         else if (progress >= 0.5f && progress < 1f)
         {
             Debug.Log("Partially boiled result");
-            if (waterAmount >= 2)
+            if (waterAmount >= 2 && isShook)
             {
 
                 base.Process(3);

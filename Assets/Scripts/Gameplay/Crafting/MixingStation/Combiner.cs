@@ -15,6 +15,7 @@ public class Combiner : BaseMixer
     {
         toggleButton.onClick.AddListener(ToggleCooking);
         progressBar.maxValue = processDuration;
+        UpdateButtonLabel();
         base.Start();
     }
 

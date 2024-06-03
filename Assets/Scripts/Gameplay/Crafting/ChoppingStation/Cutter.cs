@@ -20,6 +20,7 @@ public class Cutter : BaseMixer
         toggleButton.onClick.AddListener(ToggleCooking);
         progressBar.maxValue = maxspamHit;
         UpdatePressText(0);
+        UpdateButtonLabel();
         base.Start();
     }
     private void UpdatePressText(float number)
@@ -96,8 +97,9 @@ public class Cutter : BaseMixer
         if (isCooking)
         {
             Debug.Log("Timeout reached, resetting progress");
-            progressBar.Reset();
             isCooking = false;
+            progressBar.Reset();
+            base.EnableSlots();
             UpdateButtonLabel();
         }
     }
@@ -105,7 +107,7 @@ public class Cutter : BaseMixer
     private void DetermineResult(float progress)
     {
 
-        base.Process(0);
+        base.Process(1);
 
     }
 }

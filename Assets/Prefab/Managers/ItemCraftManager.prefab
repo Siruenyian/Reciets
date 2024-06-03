@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8674366654926614631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7792671639210729091}
+  - component: {fileID: 9127434011661371557}
+  m_Layer: 0
+  m_Name: ItemCraftManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7792671639210729091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674366654926614631}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.5080502, y: -0.99805933, z: 8.42167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9127434011661371557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674366654926614631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3b68aad6fac444a8a4a007dc990ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipes:
+  - ingredient:
+    - {fileID: 11400000, guid: 6a1c12d0223b66b45abeb1575f14da81, type: 2}
+    - {fileID: 11400000, guid: bb241c30affb0ab409a9272315a3bfdf, type: 2}
+    result: {fileID: 11400000, guid: 43e42b60cd21842498f03ad9ee8b0c59, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 43e42b60cd21842498f03ad9ee8b0c59, type: 2}
+    result: {fileID: 11400000, guid: c7c575a9d63ce724d911fa9a6251feb2, type: 2}
+    cookingMethod: 1
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 2d073e347eb2e104faa31e6b32ea4950, type: 2}
+    - {fileID: 11400000, guid: cb45d24f08be1224080b15d17e1dc4c6, type: 2}
+    - {fileID: 11400000, guid: 16ec5b5bbc29c7e40b47d37900078f2c, type: 2}
+    result: {fileID: 11400000, guid: e5b768c1d1029cf47aabd1d4b0f498e8, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: c7c575a9d63ce724d911fa9a6251feb2, type: 2}
+    - {fileID: 11400000, guid: e5b768c1d1029cf47aabd1d4b0f498e8, type: 2}
+    result: {fileID: 11400000, guid: 8e7189cfa1387424296663e5edc6daea, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 962363e2a34814c4d97bd0445bc323e3, type: 2}
+    - {fileID: 11400000, guid: d6e317de63c415e42b5afbd4a1a34273, type: 2}
+    - {fileID: 11400000, guid: a6d715f68e80d2947a2c0ed177062d8d, type: 2}
+    - {fileID: 11400000, guid: eb9ef4c06f9bb5246a3475a5e00c0331, type: 2}
+    - {fileID: 11400000, guid: 52074d519912c704ebbcc03f930178a8, type: 2}
+    - {fileID: 11400000, guid: cb45d24f08be1224080b15d17e1dc4c6, type: 2}
+    result: {fileID: 11400000, guid: 868d9cc072722a9419ae0b0daaef1b14, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 868d9cc072722a9419ae0b0daaef1b14, type: 2}
+    - {fileID: 11400000, guid: e2649825d9f96ed43bace03dc9a44217, type: 2}
+    result: {fileID: 11400000, guid: 08fe3936798672a4baa1c95f550683c9, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 7a6b0eaa58d5e614b9655516589cc2f8, type: 2}
+    result: {fileID: 11400000, guid: 04713a4670b87ee4c8dbfb78febb1b1d, type: 2}
+    cookingMethod: 5
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 7a6b0eaa58d5e614b9655516589cc2f8, type: 2}
+    result: {fileID: 11400000, guid: 901f1a9b8a93fa44999c7706dee37513, type: 2}
+    cookingMethod: 4
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 08fe3936798672a4baa1c95f550683c9, type: 2}
+    - {fileID: 11400000, guid: 901f1a9b8a93fa44999c7706dee37513, type: 2}
+    result: {fileID: 11400000, guid: 175c238e3107b0443b216176d37caa0e, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 04713a4670b87ee4c8dbfb78febb1b1d, type: 2}
+    - {fileID: 11400000, guid: 175c238e3107b0443b216176d37caa0e, type: 2}
+    result: {fileID: 11400000, guid: 2338244e6667ae44196e9679b4fa744d, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: b7fbd0b425dc4874dae7791e3586bd06, type: 2}
+    - {fileID: 11400000, guid: d993c8f4019e2294ebe8cad8616415eb, type: 2}
+    - {fileID: 11400000, guid: 2338244e6667ae44196e9679b4fa744d, type: 2}
+    result: {fileID: 11400000, guid: 7aae81a74698f9843aa88d6f77cecf33, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 7aae81a74698f9843aa88d6f77cecf33, type: 2}
+    result: {fileID: 11400000, guid: cda4c3d722015834d8826d84c2910472, type: 2}
+    cookingMethod: 0
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 6a1c12d0223b66b45abeb1575f14da81, type: 2}
+    - {fileID: 11400000, guid: 84b227aff7945c843a2b25d34a494c74, type: 2}
+    result: {fileID: 11400000, guid: 3377b58dd58613946bbe438b9dfd3bf7, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 3377b58dd58613946bbe438b9dfd3bf7, type: 2}
+    result: {fileID: 11400000, guid: eee6cc50bfc796f4e837c4fadcef634c, type: 2}
+    cookingMethod: 1
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: eee6cc50bfc796f4e837c4fadcef634c, type: 2}
+    result: {fileID: 11400000, guid: 08843b218b7407e45bca4ecfc8a0db01, type: 2}
+    cookingMethod: 4
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 962363e2a34814c4d97bd0445bc323e3, type: 2}
+    result: {fileID: 11400000, guid: 63325aba5c3e09247a7d6a3944b9710a, type: 2}
+    cookingMethod: 1
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 59ec7f102cd3a5b4390baebc78cd512a, type: 2}
+    result: {fileID: 11400000, guid: 2621c39a73db68648859aece79bfd208, type: 2}
+    cookingMethod: 1
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 2621c39a73db68648859aece79bfd208, type: 2}
+    - {fileID: 11400000, guid: 2d073e347eb2e104faa31e6b32ea4950, type: 2}
+    result: {fileID: 11400000, guid: 9e4b3ce19fb9e0940b53a7819252d9af, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: bcdd721c044edc04eab24e07c3d290de, type: 2}
+    - {fileID: 11400000, guid: 08843b218b7407e45bca4ecfc8a0db01, type: 2}
+    - {fileID: 11400000, guid: 63325aba5c3e09247a7d6a3944b9710a, type: 2}
+    - {fileID: 11400000, guid: 9e4b3ce19fb9e0940b53a7819252d9af, type: 2}
+    result: {fileID: 11400000, guid: c9cb5c3c89629e14bb0b55cb6f0b2b8d, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: a6d715f68e80d2947a2c0ed177062d8d, type: 2}
+    - {fileID: 11400000, guid: eb9ef4c06f9bb5246a3475a5e00c0331, type: 2}
+    - {fileID: 11400000, guid: 16ec5b5bbc29c7e40b47d37900078f2c, type: 2}
+    result: {fileID: 11400000, guid: ddbf07a75e176994faa3a89ebabd843b, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: ddbf07a75e176994faa3a89ebabd843b, type: 2}
+    result: {fileID: 11400000, guid: 9b28a0319044eae4f918acb1189bdc70, type: 2}
+    cookingMethod: 2
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: c4a0aa6b29994494c827426cd26b1ab5, type: 2}
+    - {fileID: 11400000, guid: fc65ba18bac967b4f8c6304221eb2448, type: 2}
+    - {fileID: 11400000, guid: 2d073e347eb2e104faa31e6b32ea4950, type: 2}
+    - {fileID: 11400000, guid: 9b28a0319044eae4f918acb1189bdc70, type: 2}
+    result: {fileID: 11400000, guid: e0932198c0f312742b9bca894b776aa9, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: e0932198c0f312742b9bca894b776aa9, type: 2}
+    result: {fileID: 11400000, guid: 1454611f4bd595a4eb14015921928d2a, type: 2}
+    cookingMethod: 3
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 0ad7b68dee025ae4ca0a74f1d32f2593, type: 2}
+    - {fileID: 11400000, guid: f2260c3eff88a134fb76a5c6c2e7d0a1, type: 2}
+    - {fileID: 11400000, guid: 7c9899a716200fd4d9e4aa11f1778264, type: 2}
+    result: {fileID: 11400000, guid: 6cde6c978668c374fa851f1ace2ab82d, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 6cde6c978668c374fa851f1ace2ab82d, type: 2}
+    result: {fileID: 11400000, guid: 04da913823fb767438507e7cf0e1bdb5, type: 2}
+    cookingMethod: 3
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 1454611f4bd595a4eb14015921928d2a, type: 2}
+    - {fileID: 11400000, guid: 04da913823fb767438507e7cf0e1bdb5, type: 2}
+    result: {fileID: 11400000, guid: 5441464fde4f25249ba8e32104e42a58, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  garbageResults:
+  - {fileID: 11400000, guid: 8f6c09d1e46359b4aab1eaf8d59f0017, type: 2}
+  isDone: 0

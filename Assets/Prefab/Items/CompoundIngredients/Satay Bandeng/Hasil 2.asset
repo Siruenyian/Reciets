@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f61d4d035f8d3441a286aa2e3c15a58, type: 3}
   m_Name: Hasil 2
   m_EditorClassIdentifier: 
-  itemName: Seasoned fish meat
+  itemName: Fish Skin
   sprite: {fileID: 21300000, guid: 32cfe6af0da7a624ba9afbf15da009af, type: 3}
-  description: Seasoned meat of bandeng fish
-  ingredientTrait: 1
+  description: Fish Skin of bandeng fish
+  ingredientTrait: 0
   value: 5

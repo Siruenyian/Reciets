@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tusuk Satay
   m_EditorClassIdentifier: 
   itemName: Stick
-  sprite: {fileID: 21300000, guid: 7165771bfea3d9d42904c58d88d2a8b6, type: 3}
-  description: a stick
+  sprite: {fileID: 21300000, guid: 7540d78d92fe156438b506ef4cab780d, type: 3}
+  description: A stick! the pinnacle of stick evolution!
   ingredientTrait: 2
   value: 0
