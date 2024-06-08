@@ -59,6 +59,15 @@ MonoBehaviour:
     timetoProcess: 0
     abbrv: 
   - ingredient:
+    - {fileID: 11400000, guid: f1369d8af4aa2d642ad6284a69959ed9, type: 2}
+    - {fileID: 11400000, guid: a6d715f68e80d2947a2c0ed177062d8d, type: 2}
+    - {fileID: 11400000, guid: 59ec7f102cd3a5b4390baebc78cd512a, type: 2}
+    result: {fileID: 11400000, guid: c55e8a0bd5703c2449b2fd73216515dd, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: c55e8a0bd5703c2449b2fd73216515dd, type: 2}
     - {fileID: 11400000, guid: 2d073e347eb2e104faa31e6b32ea4950, type: 2}
     - {fileID: 11400000, guid: cb45d24f08be1224080b15d17e1dc4c6, type: 2}
     - {fileID: 11400000, guid: 16ec5b5bbc29c7e40b47d37900078f2c, type: 2}
@@ -69,6 +78,15 @@ MonoBehaviour:
   - ingredient:
     - {fileID: 11400000, guid: c7c575a9d63ce724d911fa9a6251feb2, type: 2}
     - {fileID: 11400000, guid: e5b768c1d1029cf47aabd1d4b0f498e8, type: 2}
+    result: {fileID: 11400000, guid: 8e7189cfa1387424296663e5edc6daea, type: 2}
+    cookingMethod: 6
+    timetoProcess: 0
+    abbrv: 
+  - ingredient:
+    - {fileID: 11400000, guid: 8e7189cfa1387424296663e5edc6daea, type: 2}
+    - {fileID: 11400000, guid: 9c9deb2c2a92c9a43aa958ceea19f355, type: 2}
+    - {fileID: 11400000, guid: b2a1e8afb0a119340b24ae8291b3c599, type: 2}
+    - {fileID: 11400000, guid: 749677695ca5edb48b05df212259dc38, type: 2}
     result: {fileID: 11400000, guid: 8e7189cfa1387424296663e5edc6daea, type: 2}
     cookingMethod: 6
     timetoProcess: 0
@@ -106,6 +124,8 @@ MonoBehaviour:
   - ingredient:
     - {fileID: 11400000, guid: 08fe3936798672a4baa1c95f550683c9, type: 2}
     - {fileID: 11400000, guid: 901f1a9b8a93fa44999c7706dee37513, type: 2}
+    - {fileID: 11400000, guid: bb241c30affb0ab409a9272315a3bfdf, type: 2}
+    - {fileID: 11400000, guid: 8063c7b3c8b5d1148ad848b1ce8b0b1d, type: 2}
     result: {fileID: 11400000, guid: 175c238e3107b0443b216176d37caa0e, type: 2}
     cookingMethod: 6
     timetoProcess: 0
@@ -174,6 +194,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 08843b218b7407e45bca4ecfc8a0db01, type: 2}
     - {fileID: 11400000, guid: 63325aba5c3e09247a7d6a3944b9710a, type: 2}
     - {fileID: 11400000, guid: 9e4b3ce19fb9e0940b53a7819252d9af, type: 2}
+    - {fileID: 11400000, guid: 749677695ca5edb48b05df212259dc38, type: 2}
     result: {fileID: 11400000, guid: c9cb5c3c89629e14bb0b55cb6f0b2b8d, type: 2}
     cookingMethod: 6
     timetoProcess: 0
@@ -229,5 +250,6 @@ MonoBehaviour:
     timetoProcess: 0
     abbrv: 
   garbageResults:
-  - {fileID: 11400000, guid: 8f6c09d1e46359b4aab1eaf8d59f0017, type: 2}
+  - {fileID: 11400000, guid: 2c225c1930ef8eb44afe8d253b05d48b, type: 2}
+  - {fileID: 11400000, guid: 2c225c1930ef8eb44afe8d253b05d48b, type: 2}
   isDone: 0

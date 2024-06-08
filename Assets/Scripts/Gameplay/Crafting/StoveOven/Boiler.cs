@@ -10,23 +10,31 @@ public class Boiler : BaseMixer
     [SerializeField] private float processDuration = 5f;
     [SerializeField] private Button toggleButton;
     [SerializeField] private TextMeshProUGUI temperatureText;
+    [SerializeField] private Toggle shooktoggleButton;
     private Coroutine cookingCoroutine;
     private bool isCooking = false;
     private float sliderValue;
     [SerializeField] private bool isShook = true;
     protected override void Start()
     {
-        toggleButton.onClick.AddListener(ToggleCooking);
         progressBar.maxValue = processDuration;
+        toggleButton.onClick.AddListener(ToggleCooking);
         tempSlider.onValueChanged.AddListener(OnSliderValueChanged);
-        UpdateTemperatureText(tempSlider.value);
+        shooktoggleButton.onValueChanged.AddListener(OnToggleShook);
+        UpdateWaterText(tempSlider.value);
         UpdateButtonLabel();
         base.Start();
     }
-    private void UpdateTemperatureText(float temperature)
+    private void UpdateWaterText(float level)
     {
-        // Use an f-string to format the temperature value
-        temperatureText.text = $"Water amount: {temperature:0.0}°C";
+        // Use an f-string to format the level value
+        temperatureText.text = $"Water amount: {level:0.0}";
+    }
+
+    private void OnToggleShook(bool value)
+    {
+        // Use an f-string to format the level value
+        isShook = value;
     }
     private void ToggleCooking()
     {
@@ -78,10 +86,9 @@ public class Boiler : BaseMixer
     private void OnSliderValueChanged(float value)
     {
         // Handle the value change event
-        Debug.Log("Slider value changed: " + value);
         // Perform operations based on the new slider value
         sliderValue = value;
-        UpdateTemperatureText(value);
+        UpdateWaterText(value);
 
     }
 
@@ -109,8 +116,10 @@ public class Boiler : BaseMixer
             Debug.Log("Partially boiled result");
             if (waterAmount >= 2 && isShook)
             {
-
-                base.Process(3);
+                if (base.getIngredientinSlot(0).itemName == "Noodle And Veggies")
+                {
+                    base.Process(3);
+                }
             }
             else
             {

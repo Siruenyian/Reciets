@@ -55,27 +55,26 @@ namespace reciets
         public void FreezeMovement()
         {
             // Freeze the Rigidbody's position and rotation
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            isFrozen = true;
         }
         public void UnfreezeMovement()
         {
-
-            rb.constraints = constraints;
-
+            isFrozen = false;
         }
+        private bool isFrozen = false;
         void Update()
         {
 
-            // if (dialogueUI.isOpen)
-            // {
-            //     // rb.isKinematic = true;
-            //     FreezeMovement();
-            //     return;
-            // }
-            // else
-            // {
-            //     UnfreezeMovement();
-            // }
+            if (dialogueUI.isOpen || isFrozen)
+            {
+                // rb.isKinematic = true;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+                return;
+            }
+            else
+            {
+                rb.constraints = constraints;
+            }
             // rb.isKinematic = false;
 
             if (Input.GetKeyDown(interact))

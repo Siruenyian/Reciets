@@ -20,6 +20,7 @@ namespace reciets
             currentTime = specialite.skillCooldown;
 
             skillImage = GetComponent<Image>();
+            skillImage.sprite = specialite.sprite;
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -61,7 +62,31 @@ namespace reciets
             isOnCooldown = true;
             skillImage.color = new Color32(255, 255, 225, 30);
         }
+        public void SetSlot(Specialite specialite)
+        {
 
+            this.specialite = specialite;
+            if (skillImage != null)
+            {
+                skillImage.sprite = specialite.sprite;
+            }
+        }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            ShowMessage();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            HoverTipManager_Script.OnMouseLoseFocus();
+        }
+
+        private void ShowMessage()
+        {
+            Debug.Log(Input.mousePosition);
+            String message = $"{specialite.SPName:yea}\nBuff:\ntaste: {specialite.detailDict[IngredientTrait.TASTE]:taste}\npopularity: {specialite.detailDict[IngredientTrait.POPULARITY]:taste}\nnutrition: {specialite.detailDict[IngredientTrait.NUTRITION]:taste}";
+            HoverTipManager_Script.OnMouseHover(message, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
         // void Update()
         // {
         //     if (isOnCooldown)

@@ -8,7 +8,6 @@ namespace reciets
     {
         // Start is called before the first frame update
 
-        [SerializeField] private List<Specialite> slot = new List<Specialite>();
         [SerializeField] private List<Specialite> specialites = new List<Specialite>();
         private void Awake()
         {

@@ -52,6 +52,7 @@ namespace reciets
                 dialogueInteraction.dialogueObj.Responses[0].Dialogueobject = brokeDialogue;
 
                 isorderDone = false;
+                characterInteraction.UnfreezeMovement();
 
                 // OrderDone?.Invoke();
                 return;
@@ -65,7 +66,7 @@ namespace reciets
             {
                 characterInteraction.RemoveInventory();
                 dialogueInteraction.dialogueObj.Responses[0].Dialogueobject = accDialogue;
-                isorderDone = true;
+                // isorderDone = true;
                 StartCoroutine(AwaitDialogue(dialogueInteraction, true));
 
             }
@@ -74,7 +75,7 @@ namespace reciets
                 Debug.Log("is garabage");
                 characterInteraction.RemoveInventory();
                 dialogueInteraction.dialogueObj.Responses[0].Dialogueobject = rejectedDialogue;
-                isorderDone = false;
+                // isorderDone = false;
                 StartCoroutine(AwaitDialogue(dialogueInteraction, false));
 
             }
@@ -82,12 +83,13 @@ namespace reciets
         private IEnumerator AwaitDialogue(DialogueInteraction dialogueInteraction, bool isSatisfied)
         {
             // unreliable soalnya dialogue buka tutup
-            while (dialogueInteraction.isDone == false)
+            while (characterInteraction.DialogueUI.isOpen == true)
             {
                 Debug.Log(dialogueInteraction.isDone);
                 yield return null; // Wait until the condition is met
             }
             // Fire the event
+            isorderDone = isSatisfied;
             OrderDone?.Invoke(isSatisfied);
         }
         // Start is called before the first frame update

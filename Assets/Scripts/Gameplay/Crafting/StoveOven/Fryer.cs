@@ -23,10 +23,10 @@ public class Fryer : BaseMixer
         UpdateButtonLabel();
         base.Start();
     }
-    private void UpdateTemperatureText(float temperature)
+    private void UpdateTemperatureText(float level)
     {
-        // Use an f-string to format the temperature value
-        temperatureText.text = $"Oil amount: {temperature:0.0}°C";
+        // Use an f-string to format the level value
+        temperatureText.text = $"Oil amount: {level:0.0}";
     }
     private void ToggleCooking()
     {

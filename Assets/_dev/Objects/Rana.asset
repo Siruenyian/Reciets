@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rana
   m_EditorClassIdentifier: 
   SPName: Rana
-  sprite: {fileID: 21300000, guid: 2741f65698706af42b9037c067fd3ab3, type: 3}
+  sprite: {fileID: 21300000, guid: b233579cebeabec408e1398909f5c1ed, type: 3}
   skillCooldown: 0
   description: asdasdas
   detailDict:

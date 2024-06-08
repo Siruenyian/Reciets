@@ -12,13 +12,13 @@ public class IngredientStorage : MonoBehaviour, Iinteractable
     [SerializeField] private Canvas canvas;
     private CharacterInteraction characterI = null;
     private List<ItemSlot> slots = new List<ItemSlot>();
-    [SerializeField] private List<IngredientDetail> ingredients = new List<IngredientDetail>();
+    [SerializeField] private List<ItemDetail> ingredients = new List<ItemDetail>();
     public CharacterInteraction CharacterI { get => characterI; set => characterI = value; }
     private LayerMask layersToDisable;
     private void Start()
     {
+        canvas.gameObject.SetActive(true);
         layersToDisable = 1 << LayerMask.NameToLayer("Player");
-        Debug.Log(slots.Count);
         slots = GetComponentsInChildren<ItemSlot>().ToList();
         canvas.gameObject.SetActive(false);
         for (int i = 0; i < ingredients.Count; i++)

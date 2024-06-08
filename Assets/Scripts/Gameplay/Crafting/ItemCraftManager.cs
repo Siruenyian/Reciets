@@ -55,7 +55,7 @@ namespace reciets
                     if (recipes[i].result is FoodDetail)
                     {
                         foodResult = (FoodDetail)Instantiate(recipes[i].result);
-                        foodResult.AddTrait(taste, nutrition, popularity);
+                        // foodResult.AddTrait(taste, nutrition, popularity);
                         return foodResult;
 
                     }

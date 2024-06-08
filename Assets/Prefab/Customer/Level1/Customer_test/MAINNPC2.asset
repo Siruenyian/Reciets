@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08b7df6eddbafa45a0df4cb9b79cd30, type: 3}
+  m_Name: MAINNPC2
+  m_EditorClassIdentifier: 
+  Dialoguepicleft: {fileID: 0}
+  Dialoguepicright: {fileID: 0}
+  background: {fileID: 0}
+  dialogue:
+  - Heya! my name is Sana, the Specialite of this Region
+  - To pass this area, you must cook a Mie Ongklok, without any additions, and submit
+    it to me
+  - Doubt you'll do it tho!! Hahahahah!!
+  responses:
+  - responsetext: Submit Item
+    dialogueObj: {fileID: 11400000, guid: 64d28e74bbca53041b33e05f2e83b6e8, type: 2}
+  - responsetext: Please wait..
+    dialogueObj: {fileID: 0}
+  isEnd: 0
+  isLeft: 0
+  isRight: 0
+  dialogueObj: {fileID: 0}

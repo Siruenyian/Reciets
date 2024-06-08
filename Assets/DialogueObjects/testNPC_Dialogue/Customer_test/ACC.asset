@@ -16,9 +16,9 @@ MonoBehaviour:
   Dialoguepicright: {fileID: 0}
   background: {fileID: 0}
   dialogue:
-  - 'Wohooo!! '
-  - You did my order as expected, no wonder Robochi respects you
-  - Thanks, and see you later!!
+  - HUH?!!!
+  - You did my order as expected, thats... a suprise
+  - Well umm, you passed I'll give you that.....
   responses: []
   isEnd: 0
   isLeft: 0

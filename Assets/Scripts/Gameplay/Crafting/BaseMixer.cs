@@ -42,7 +42,10 @@ public class BaseMixer : MonoBehaviour
 
     }
 
-
+    protected ItemDetail getIngredientinSlot(int slot)
+    {
+        return ingredients[slot];
+    }
 
     // Method to toggle ingredient based on button identifier
     public void ToggleIngredient(int buttonId)

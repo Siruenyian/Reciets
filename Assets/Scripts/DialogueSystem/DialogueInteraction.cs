@@ -29,6 +29,7 @@ public class DialogueInteraction : MonoBehaviour
 
         player.DialogueUI.showDialogue(dialogueObj, dialogueObj.Dialoguepicleft, dialogueObj.Dialoguepicright);
         isDone = true;
+
     }
 
 

@@ -1,144 +1,92 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public enum GameState
-{
-    MainMenu,
-    Playing,
-    Paused,
-    GameOver
-}
-
-
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Bar scoreBar;
-    private static GameManager _instance;
+    public static GameManager Instance { get; private set; }
 
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<GameManager>();
-
-                if (_instance == null)
-                {
-                    GameObject singleton = new GameObject("GameManager");
-                    _instance = singleton.AddComponent<GameManager>();
-                }
-
-                DontDestroyOnLoad(_instance.gameObject);
-            }
-            return _instance;
-        }
-    }
+    // Game state variables
+    public bool isGamePaused { get; private set; }
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
+        // Ensure that only one instance of GameManager exists
+        if (Instance == null)
         {
-            Destroy(gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Persist across scenes
         }
         else
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
     }
 
-    private GameState currentState;
-    public event System.Action<GameState> OnGameStateChanged;
-    public GameState CurrentState
+    private void Start()
     {
-        get { return currentState; }
-        private set
-        {
-            currentState = value;
-            OnGameStateChanged?.Invoke(currentState);
-        }
+        // Initialize game state variables
+        isGamePaused = false;
     }
 
-    public void ChangeState(GameState newState)
+    public void StartNewGame()
     {
-        CurrentState = newState;
-
-        switch (newState)
-        {
-            case GameState.MainMenu:
-                HandleMainMenu();
-                break;
-            case GameState.Playing:
-                HandlePlaying(0);
-                break;
-            case GameState.Paused:
-                HandlePaused();
-                break;
-            case GameState.GameOver:
-                HandleGameOver();
-                break;
-        }
+        SceneManager.LoadScene("MainGameScene");
+        isGamePaused = false;
+        Time.timeScale = 1f; // Ensure game time is running
     }
 
-    private void HandleMainMenu()
+    public void LoadScene(string sceneName)
     {
-        // Handle main menu logic
-        Debug.Log("Main Menu");
+        SceneManager.LoadScene(sceneName);
+        isGamePaused = false;
+        Time.timeScale = 1f;
+    }
+    public void LoadMenu()
+    {
         SceneManager.LoadScene("MainMenu");
+        isGamePaused = false;
+        Time.timeScale = 1f;
+    }
+    // Method to reload the current scene
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void HandlePlaying(int level)
+    // Method to toggle game pause state
+    public void TogglePauseGame()
     {
-        // Handle playing logic
-        Debug.Log("Playing");
-        SceneManager.LoadScene("GameScene" + level);
-    }
-
-    private void HandlePaused()
-    {
-        // Handle paused logic
-        Debug.Log("Paused");
-    }
-
-    private void HandleGameOver()
-    {
-        // Handle game over logic
-        Debug.Log("Game Over");
-    }
-
-    // Utility methods
-    public void StartGame()
-    {
-        ChangeState(GameState.Playing);
-    }
-
-    public void PauseGame()
-    {
-        if (CurrentState == GameState.Playing)
+        if (isGamePaused)
         {
-            ChangeState(GameState.Paused);
-            Time.timeScale = 0f; // Stop the game time
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
         }
     }
 
-    public void ResumeGame()
+    private void PauseGame()
     {
-        if (CurrentState == GameState.Paused)
-        {
-            ChangeState(GameState.Playing);
-            Time.timeScale = 1f; // Resume the game time
-        }
+        isGamePaused = true;
+        Time.timeScale = 0f; // Stop time
     }
 
-    public void EndGame()
+    private void ResumeGame()
     {
-        ChangeState(GameState.GameOver);
+        isGamePaused = false;
+        Time.timeScale = 1f; // Resume time
     }
 
-    public void ReturnToMainMenu()
+    public void QuitGame()
     {
-        ChangeState(GameState.MainMenu);
+        Application.Quit();
+        // If in the editor, stop play mode
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
+
 }

@@ -7,26 +7,39 @@ public class Oven : BaseMixer
 {
     [SerializeField] private Bar progressBar;
     [SerializeField] private Slider tempSlider;
+    [SerializeField] private Slider timeSlider;
     [SerializeField] private float processDuration = 5f;
     [SerializeField] private Button toggleButton;
     [SerializeField] private TextMeshProUGUI temperatureText;
+    [SerializeField] private TextMeshProUGUI timeText;
     private Coroutine cookingCoroutine;
     private bool isCooking = false;
-    private float sliderValue;
+    private float tempsliderValue;
+    private float timesliderValue;
 
     protected override void Start()
     {
         toggleButton.onClick.AddListener(ToggleCooking);
         progressBar.maxValue = processDuration;
-        tempSlider.onValueChanged.AddListener(OnSliderValueChanged);
-        UpdateTemperatureText(tempSlider.value);
+        tempSlider.onValueChanged.AddListener(OnTempSliderValueChanged);
+        timeSlider.onValueChanged.AddListener(OnTimeSliderValueChanged);
         UpdateButtonLabel();
         base.Start();
+    }
+    private void Update()
+    {
+        UpdateTemperatureText(tempSlider.value);
+        UpdateTimeText(timeSlider.value);
     }
     private void UpdateTemperatureText(float temperature)
     {
         // Use an f-string to format the temperature value
-        temperatureText.text = $"Temperature: {temperature * 100:0.0}°C";
+        temperatureText.text = $"Temperature: {temperature * 60:0.0}°C";
+    }
+    private void UpdateTimeText(float temperature)
+    {
+        // Use an f-string to format the temperature value
+        timeText.text = $"Time: {temperature * 30:0.0} minutes";
     }
     private void ToggleCooking()
     {
@@ -68,16 +81,22 @@ public class Oven : BaseMixer
         }
     }
 
-    private void OnSliderValueChanged(float value)
+    private void OnTempSliderValueChanged(float value)
     {
         // Handle the value change event
-        Debug.Log("Slider value changed: " + value);
+        // Debug.Log("Slider value changed: " + value);
         // Perform operations based on the new slider value
-        sliderValue = value;
+        tempsliderValue = value;
         UpdateTemperatureText(value);
-
     }
-
+    private void OnTimeSliderValueChanged(float value)
+    {
+        // Handle the value change event
+        // Debug.Log("Slider value changed: " + value);
+        // Perform operations based on the new slider value
+        timesliderValue = value;
+        UpdateTimeText(value);
+    }
 
     private IEnumerator Cook(int method)
     {
@@ -95,7 +114,7 @@ public class Oven : BaseMixer
         }
 
         progressBar.Reset();
-        if (sliderValue == 3)
+        if (tempsliderValue == 3 && timesliderValue == 1)
         {
 
             base.Process(method);

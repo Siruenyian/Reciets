@@ -17,7 +17,7 @@ public class CustomerMovement : MonoBehaviour
     // public Transform targetPos;
     private float moveTreshold = 0.2f;
     Vector3 destination = Vector3.one;
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();

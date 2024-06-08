@@ -26,7 +26,7 @@ public class Cutter : BaseMixer
     private void UpdatePressText(float number)
     {
         // Use an f-string to format the number value
-        temperatureText.text = $"Chop chop: {number:0}";
+        temperatureText.text = $"Choping level: {number:0}";
     }
     private void ToggleCooking()
     {

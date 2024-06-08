@@ -13,6 +13,8 @@ public class MixingStation : MonoBehaviour, Iinteractable
     private LayerMask layersToDisable;
     private void Start()
     {
+        // canvas.gameObject.SetActive(true);
+        // combiner.gameObject.SetActive(true);
 
         layersToDisable = 1 << LayerMask.NameToLayer("Player");
         canvas.gameObject.SetActive(false);

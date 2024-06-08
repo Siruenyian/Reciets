@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86fa604452ba2674a9bd7d7c90941711, type: 3}
+  m_Name: Weird goo
+  m_EditorClassIdentifier: 
+  itemName: Weird goo
+  sprite: {fileID: 21300000, guid: 9626f53e6c25cf04dbb77c23cfaf4eb4, type: 3}
+  description: Weird Goo from not processing items correctly
+  detailDict:
+    _serializedList:
+    - Key: 0
+      Value: -10
+    - Key: 1
+      Value: -10
+    - Key: 2
+      Value: -10

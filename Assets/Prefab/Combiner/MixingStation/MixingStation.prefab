@@ -504,6 +504,7 @@ Transform:
   - {fileID: 3499612282200882549}
   - {fileID: 543192543731033036}
   - {fileID: 450827790807783847}
+  - {fileID: 4969157973514552754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1842273415386035945
@@ -2033,6 +2034,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   stock: 0
+--- !u!1 &6904767087772607437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4969157973514552754}
+  - component: {fileID: 2665436927904399474}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4969157973514552754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904767087772607437}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.507484, y: -9.611997, z: -0.28511846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1674402158309549543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2665436927904399474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904767087772607437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a4804ab319955468815443b424c106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots:
+  - {fileID: 1502673421136710387}
+  - {fileID: 1575777397951264342}
+  - {fileID: 5811457413632621712}
+  - {fileID: 3936798519465064458}
+  - {fileID: 4255896572234603017}
+  - {fileID: 2461487239225854023}
+  resultSlots:
+  - {fileID: 7974432183710986242}
+  cookingMethod: 1
+  progressBar: {fileID: 2691514904100925006}
+  processDuration: 5
+  toggleButton: {fileID: 3736545624589905337}
 --- !u!1 &6967987504237768192
 GameObject:
   m_ObjectHideFlags: 0
