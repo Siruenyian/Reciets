@@ -10,7 +10,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameOverMenu gameOverMenu;
     private CustomerInteraction customerInteraction;
     private int customerinStage = 1;
-    
+    [SerializeField] private AudioClip audioClip;
+
     private void Start()
     {
         pauseCanvas.gameObject.SetActive(false);
@@ -21,6 +22,9 @@ public class LevelManager : MonoBehaviour
         customerManager.GoIn();
         countdownTimer.SetStartSec(5400);
         countdownTimer.StartTimer();
+        SoundManager.Instance.Play(audioClip);
+        SoundManager.Instance.SetVolume(0.5f);
+
     }
 
     public void TogglePauseGame()

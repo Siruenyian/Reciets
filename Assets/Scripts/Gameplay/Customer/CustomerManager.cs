@@ -18,7 +18,7 @@ namespace reciets
         [SerializeField] private LevelManager levelManager;
 
         float positionSize = 3f;
-        Vector3 firstPos = new Vector3(12, 1, 0);
+        [SerializeField] Vector3 firstPos = new Vector3(12, 0, 0);
         Vector3 spacing = new Vector3(0, 0, -1);
         List<Vector3> customerPositions = new List<Vector3>();
         WaitingQueue waitingQueue;

@@ -4,7 +4,13 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Canvas levelmenuCanvas;
     [SerializeField] private Canvas settingsmenuCanvas;
+    [SerializeField] private AudioClip audioClip;
 
+    private void Start()
+    {
+        SoundManager.Instance.Play(audioClip);
+        SoundManager.Instance.SetVolume(0.5f);
+    }
     public void OpenLevelmenu()
     {
         levelmenuCanvas.gameObject.SetActive(true);

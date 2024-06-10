@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class SoundManager : MonoBehaviour
     }
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioMixer bgmMixer;
+    [SerializeField] private AudioMixer sfxMixer;
     // Start is called before the first frame update
     // Update is called once per frame
     public void Play(AudioClip sound)
@@ -35,5 +38,23 @@ public class SoundManager : MonoBehaviour
     public void PlaySFX(AudioClip audio)
     {
         sfxSource.PlayOneShot(audio);
+    }
+
+    public void SetVolume(float sliderval)
+    {
+        // audioSlider.value = globalvol;
+        // globalvol = sliderval;
+        float mixerval =
+        Mathf.Log10(sliderval) * 20;
+
+        if (mixerval == float.NegativeInfinity || mixerval < -60f)
+        {
+            bgmMixer.SetFloat("BGMMaster", -50f);
+            sfxMixer.SetFloat("SFXMaster", -50f);
+            return;
+
+        }
+        bgmMixer.SetFloat("BGMMaster", mixerval);
+        sfxMixer.SetFloat("SFXMaster", mixerval);
     }
 }
