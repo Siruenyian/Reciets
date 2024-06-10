@@ -106,8 +106,11 @@ public class Cutter : BaseMixer
 
     private void DetermineResult(float progress)
     {
-
+        if (!IsAnyIngredientAdded())
+        {
+            return;
+        }
         base.Process(1);
-
+        CountDownTimer.Instance.ReduceTime(300);
     }
 }

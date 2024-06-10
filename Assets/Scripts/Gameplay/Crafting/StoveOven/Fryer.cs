@@ -1,4 +1,5 @@
 using System.Collections;
+using reciets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,7 +79,7 @@ public class Fryer : BaseMixer
     private void OnSliderValueChanged(float value)
     {
         // Handle the value change event
-        Debug.Log("Slider value changed: " + value);
+        // Debug.Log("Slider value changed: " + value);
         // Perform operations based on the new slider value
         sliderValue = value;
         UpdateTemperatureText(value);
@@ -98,6 +99,10 @@ public class Fryer : BaseMixer
     }
     private void DetermineResult(float progress, float oilAmount)
     {
+        if (!IsAnyIngredientAdded())
+        {
+            return;
+        }
         if (progress < 0.5f)
         {
             Debug.Log("Under-cooked result");
@@ -111,10 +116,14 @@ public class Fryer : BaseMixer
             {
 
                 base.Process(1);
+
+                CountDownTimer.Instance.ReduceTime(300);
+
             }
             else
             {
                 base.Process(2);
+                CountDownTimer.Instance.ReduceTime(300);
 
             }
             // Create alternate result for partially cooked

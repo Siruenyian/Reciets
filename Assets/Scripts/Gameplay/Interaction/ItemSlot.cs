@@ -81,14 +81,14 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // Camera.main.ScreenToWorldPoint(Input.mousePosition)
         if (itemDetail != null)
         {
-            if (itemDetail is FoodDetail)
-            {
-                FoodDetail food = (FoodDetail)itemDetail;
-                String message = $"{food.itemName:yea}\nBuff:\ntaste: {food.detailDict[IngredientTrait.TASTE]:null}\npopularity: {food.detailDict[IngredientTrait.POPULARITY]:taste}\nnutrition: {food.detailDict[IngredientTrait.NUTRITION]:taste}";
+            // if (itemDetail is FoodDetail)
+            // {
+            //     FoodDetail food = (FoodDetail)itemDetail;
+            //     String message = $"{food.itemName:yea}\nBuff:\ntaste: {food.detailDict[IngredientTrait.TASTE]:null}\npopularity: {food.detailDict[IngredientTrait.POPULARITY]:taste}\nnutrition: {food.detailDict[IngredientTrait.NUTRITION]:taste}";
 
-                HoverTipManager_Script.OnMouseHover(message, Input.mousePosition);
-                return;
-            }
+            //     HoverTipManager_Script.OnMouseHover(message, Input.mousePosition);
+            //     return;
+            // }
             HoverTipManager_Script.OnMouseHover($"{itemDetail.itemName:yea}\n{itemDetail.description:yea}", Input.mousePosition);
         }
     }

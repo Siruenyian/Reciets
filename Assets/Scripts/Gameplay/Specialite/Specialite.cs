@@ -15,11 +15,23 @@ namespace reciets
         [SerializeField][TextArea] public string description;
         [SerializedDictionary("Trait", "Value")]
         public AYellowpaper.SerializedCollections.SerializedDictionary<IngredientTrait, int> detailDict;
-        public void ExtraAbility()
+        public void ExtraAbility(MonoBehaviour coroutineRunner)
         {
             Debug.Log("extraaaaa");
+            CountDownTimer.Instance.AddTime(300);
+            coroutineRunner.StartCoroutine(ExtraAbilityCoroutine(3f));
         }
+        private IEnumerator ExtraAbilityCoroutine(float duration)
+        {
+            // Set time scale to 0 to stop time
+            Time.timeScale = 0.5f;
 
+            // Wait for the specified duration in real-time seconds
+            yield return new WaitForSecondsRealtime(duration);
+
+            // Restore time scale to 1 to resume normal time
+            Time.timeScale = 1;
+        }
         public void Boost(CharacterInteraction characterInteraction)
         {
             // check on hand

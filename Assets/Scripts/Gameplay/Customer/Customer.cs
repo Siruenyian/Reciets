@@ -14,6 +14,8 @@ namespace reciets
         [SerializeField] private int nutritionModifier;
         [SerializeField] private int popularityModifier;
 
+        public FoodDetail DesiredFood { get => desiredFood; private set => desiredFood = value; }
+
         private void Awake()
         {
             Modifier();

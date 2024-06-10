@@ -77,6 +77,11 @@ public class Skinner : BaseMixer
     }
     private void DetermineResult(float progress)
     {
+        if (!IsAnyIngredientAdded())
+        {
+            return;
+        }
         base.Process(0);
+        CountDownTimer.Instance.ReduceTime(900);
     }
 }

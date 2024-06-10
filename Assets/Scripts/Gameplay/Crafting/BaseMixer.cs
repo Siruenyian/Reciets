@@ -41,7 +41,10 @@ public class BaseMixer : MonoBehaviour
         }
 
     }
-
+    protected bool IsAnyIngredientAdded()
+    {
+        return isIngredientAddedMap.Values.Any(value => value);
+    }
     protected ItemDetail getIngredientinSlot(int slot)
     {
         return ingredients[slot];
@@ -179,7 +182,7 @@ public class BaseMixer : MonoBehaviour
 
         }
     }
-    public virtual void Process(int method)
+    protected virtual void Process(int method)
     {
         // get the result by sending string
 

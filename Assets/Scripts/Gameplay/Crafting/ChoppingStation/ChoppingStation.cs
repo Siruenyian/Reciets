@@ -1,3 +1,4 @@
+using System.Threading;
 using Cinemachine;
 using reciets;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class ChoppingStation : MonoBehaviour, Iinteractable
     [SerializeField] private CinemachineVirtualCamera transitionCam = null;
     [SerializeField] private Skinner skinner;
     [SerializeField] private Cutter cutter;
+
     private LayerMask layersToDisable;
     private void Start()
     {

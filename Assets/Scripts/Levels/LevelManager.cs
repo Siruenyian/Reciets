@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameOverMenu gameOverMenu;
     private CustomerInteraction customerInteraction;
     private int customerinStage = 1;
-
+    
     private void Start()
     {
         pauseCanvas.gameObject.SetActive(false);
@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
         customerInteraction = customer.GetComponentInChildren<CustomerInteraction>();
         customerInteraction.OrderDone += HandleOrderDone;
         customerManager.GoIn();
+        countdownTimer.SetStartSec(5400);
         countdownTimer.StartTimer();
     }
 
@@ -60,7 +61,7 @@ public class LevelManager : MonoBehaviour
             score = 0;
             Debug.Log("you lose!");
         }
-        Debug.Log("Score is: " + score + " " + countdownTimer.StartSeconds);
+        Debug.Log("Score is: " + score + " " + countdownTimer.GetFastestTime());
         countdownTimer.StopTimer();
         gameOverMenu.ShowCanvas(score, countdownTimer.GetFastestTime());
     }

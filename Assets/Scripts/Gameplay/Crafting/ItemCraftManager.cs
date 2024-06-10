@@ -40,10 +40,13 @@ namespace reciets
             }
         }
 
+        private bool isValid = false;
+
+        public bool IsValid { get => isValid; set => isValid = value; }
         public ItemDetail CombineByName(string itemAbbrv, int taste, int nutrition, int popularity)
         {
 
-
+            isValid = false;
             itemAbbrv = itemAbbrv.Trim();
             Debug.Log(itemAbbrv);
             // find and motify stats
@@ -56,6 +59,7 @@ namespace reciets
                     {
                         foodResult = (FoodDetail)Instantiate(recipes[i].result);
                         // foodResult.AddTrait(taste, nutrition, popularity);
+                        isValid = true;
                         return foodResult;
 
                     }
@@ -64,6 +68,7 @@ namespace reciets
                 }
             }
             Debug.Log("ngak ketemu");
+            isValid = false;
             return garbageResults[Random.Range(0, garbageResults.Count - 1)];
         }
 

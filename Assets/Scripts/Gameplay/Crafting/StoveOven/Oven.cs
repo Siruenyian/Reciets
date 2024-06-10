@@ -114,15 +114,21 @@ public class Oven : BaseMixer
         }
 
         progressBar.Reset();
-        if (tempsliderValue == 3 && timesliderValue == 1)
+        if (IsAnyIngredientAdded())
         {
+            if (tempsliderValue == 3 && timesliderValue == 1)
+            {
 
-            base.Process(method);
+                base.Process(method);
+                CountDownTimer.Instance.ReduceTime(timesliderValue * 30 * 60);
+
+            }
+            else
+            {
+                base.Process(-1);
+            }
         }
-        else
-        {
-            base.Process(-1);
-        }
+
         base.EnableSlots();
         isCooking = false;
         UpdateButtonLabel();

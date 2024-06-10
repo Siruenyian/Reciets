@@ -79,9 +79,14 @@ public class Combiner : BaseMixer
     }
     private void DetermineResult(float progress)
     {
+        if (!IsAnyIngredientAdded())
+        {
+            return;
+        }
         if (progress >= 1f)
         {
             base.Process(0);
+            CountDownTimer.Instance.ReduceTime(300);
         }
     }
 }

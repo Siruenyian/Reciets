@@ -105,6 +105,10 @@ public class Boiler : BaseMixer
     }
     private void DetermineResult(float progress, float waterAmount)
     {
+        if (!IsAnyIngredientAdded())
+        {
+            return;
+        }
         if (progress < 0.5f)
         {
             Debug.Log("Under-biled result");
@@ -119,6 +123,7 @@ public class Boiler : BaseMixer
                 if (base.getIngredientinSlot(0).itemName == "Noodle And Veggies")
                 {
                     base.Process(3);
+                    CountDownTimer.Instance.ReduceTime(1200);
                 }
             }
             else
@@ -133,6 +138,8 @@ public class Boiler : BaseMixer
             {
 
                 base.Process(3);
+                CountDownTimer.Instance.ReduceTime(1200);
+
             }
             else
             {

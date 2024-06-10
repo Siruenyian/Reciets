@@ -25,7 +25,7 @@ public class Jukebox_Script : MonoBehaviour
             Debug.Log(BGMClips[i]);*/
             AudioClip temp = BGMClips[i];
 
-            jbButton.button.onClick.AddListener(() => BGMManager.PlayBGM(temp));
+            // jbButton.button.onClick.AddListener(() => BGMManager.Play(temp));
             jbButton.button.onClick.AddListener(() =>
             currentlyPlaying.text = $"Now playing: {temp.name:Nothing currently playing}"
             );
