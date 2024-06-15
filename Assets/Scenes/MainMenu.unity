@@ -160,9 +160,9 @@ RectTransform:
   - {fileID: 312477616}
   m_Father: {fileID: 910418446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 390.4784, y: -85.835}
   m_SizeDelta: {x: 167.4501, y: 128.8078}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3450090
@@ -900,9 +900,9 @@ RectTransform:
   - {fileID: 254260021}
   m_Father: {fileID: 910418446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 597.2317, y: -85.835}
   m_SizeDelta: {x: 167.4501, y: 128.8078}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &169875602
@@ -4397,9 +4397,9 @@ RectTransform:
   - {fileID: 977239048}
   m_Father: {fileID: 910418446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 183.72505, y: -85.835}
   m_SizeDelta: {x: 167.4501, y: 128.8078}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750112739
@@ -7219,7 +7219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &979211480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9959,8 +9959,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32.500004}
-  m_SizeDelta: {x: 130, y: 25}
+  m_AnchoredPosition: {x: 0, y: 39.346413}
+  m_SizeDelta: {x: 151.1822, y: 38.6928}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680443636
 MonoBehaviour:
@@ -9982,7 +9982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: "Level 1: \nJavanese Cuisine 1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10009,8 +10009,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

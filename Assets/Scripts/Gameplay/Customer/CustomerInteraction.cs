@@ -7,7 +7,7 @@ namespace reciets
 {
     public class CustomerInteraction : MonoBehaviour, Iinteractable
     {
-        [SerializeField] Customer customer;
+        [SerializeField] public Customer customer;
         [SerializeField] private DialogueInteraction dialogueInteraction;
         [SerializeField] private DialogueObj brokeDialogue;
         [SerializeField] private DialogueObj accDialogue;

@@ -13408,7 +13408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.size
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[0]
@@ -13463,12 +13463,12 @@ PrefabInstance:
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[10]
       value: 
-      objectReference: {fileID: 21300000, guid: 6770d1ca4165183418b47134f4a5e0af,
+      objectReference: {fileID: 21300000, guid: 4c9d72d001e1dfb4a9a20dc36d641a83,
         type: 3}
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[11]
       value: 
-      objectReference: {fileID: 21300000, guid: 30936e3265ffd214296bbd2435402c2a,
+      objectReference: {fileID: 21300000, guid: 01db312523ffab54497848fa8e237b4e,
         type: 3}
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[12]
@@ -16926,7 +16926,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpoint: {fileID: 989562678}
   prefab:
+  - {fileID: 2637339434613685175, guid: 95146c50f74a00d44a707d2e9e404db8, type: 3}
+  - {fileID: 2637339434613685175, guid: 003a08aae6a54bd4d98beb8fcc1c3cac, type: 3}
   - {fileID: 2637339434613685175, guid: 849d4de9e8e0f1448a9e718700f36211, type: 3}
+  - {fileID: 2637339434613685175, guid: 430cfb07352474743a661f910a0c5d25, type: 3}
   customers: []
   queueSize: 3
   levelManager: {fileID: 0}

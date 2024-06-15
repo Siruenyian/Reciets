@@ -89,7 +89,15 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             //     HoverTipManager_Script.OnMouseHover(message, Input.mousePosition);
             //     return;
             // }
-            HoverTipManager_Script.OnMouseHover($"{itemDetail.itemName:yea}\n{itemDetail.description:yea}", Input.mousePosition);
+            if (itemDetail is FoodDetail)
+            {
+                FoodDetail food = (FoodDetail)itemDetail;
+                String message = $"{itemDetail.itemName:no name}\n{itemDetail.description:no name}";
+
+                HoverTipManager_Script.OnMouseHover(message, Input.mousePosition);
+                return;
+            }
+            HoverTipManager_Script.OnMouseHover($"{itemDetail.itemName:no name}", Input.mousePosition);
         }
     }
     private IEnumerator StartTimer()

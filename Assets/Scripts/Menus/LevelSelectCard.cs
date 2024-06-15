@@ -11,6 +11,6 @@ public class LevelSelectCard : MonoBehaviour
     public void SetScore(float score)
     {
         scoreBar.value = score;
-        scoreText.text = $"Score: {score:00}";
+        scoreText.text = $"Points: {score:0}/100";
     }
 }
