@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using reciets;
 using TMPro;
@@ -24,10 +25,32 @@ public class Fryer : BaseMixer
         UpdateButtonLabel();
         base.Start();
     }
+
+    private String parse(float level)
+    {
+        String b = "";
+        switch (Mathf.FloorToInt(level))
+        {
+
+            case 1:
+                b = "low";
+                break;
+            case 2:
+                b = "medium";
+                break;
+            case 3:
+                b = "high";
+                break;
+            default:
+                b = "no oil";
+                break;
+        }
+        return b;
+    }
     private void UpdateTemperatureText(float level)
     {
         // Use an f-string to format the level value
-        temperatureText.text = $"Oil amount: {level:0.0}";
+        temperatureText.text = $"Oil amount: {level:0.0}/ {parse(level):'no oil'}";
     }
     private void ToggleCooking()
     {

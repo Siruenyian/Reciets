@@ -1745,7 +1745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6231033916717584598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4331,6 +4331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Containerthingy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f1ee522508419745ad9301d67121cec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

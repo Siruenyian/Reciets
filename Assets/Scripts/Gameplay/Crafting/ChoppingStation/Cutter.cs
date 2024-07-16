@@ -81,11 +81,11 @@ public class Cutter : BaseMixer
         TextMeshProUGUI buttonText = toggleButton.GetComponentInChildren<TextMeshProUGUI>();
         if (isCooking)
         {
-            buttonText.text = "Press to Cook";
+            buttonText.text = "Press repeatedly";
         }
         else
         {
-            buttonText.text = "Stop Cooking";
+            buttonText.text = "Press repeatedly";
         }
     }
 

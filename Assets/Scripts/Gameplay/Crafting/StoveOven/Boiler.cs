@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -25,10 +26,33 @@ public class Boiler : BaseMixer
         UpdateButtonLabel();
         base.Start();
     }
+
+    private String parse(float level)
+    {
+        String b = "";
+        switch (Mathf.FloorToInt(level))
+        {
+
+            case 1:
+                b = "low";
+                break;
+            case 2:
+                b = "medium";
+                break;
+            case 3:
+                b = "high";
+                break;
+            default:
+                b = " no water";
+                break;
+        }
+        return b;
+    }
+
     private void UpdateWaterText(float level)
     {
         // Use an f-string to format the level value
-        temperatureText.text = $"Water amount: {level:0.0}";
+        temperatureText.text = $"Water amount: {level:0.0}/ {parse(level):'no water'}";
     }
 
     private void OnToggleShook(bool value)

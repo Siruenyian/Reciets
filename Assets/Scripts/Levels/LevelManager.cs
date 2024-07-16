@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
         countdownTimer.SetStartSec(5400);
         countdownTimer.StartTimer();
         SoundManager.Instance.Play(audioClip);
-        SoundManager.Instance.SetVolume(0.5f);
+        // SoundManager.Instance.SetVolume(0.5f);
 
     }
     private int ParseFood(FoodDetail food)
