@@ -6,7 +6,7 @@ public class CountDownTimer : MonoBehaviour
     public event Action OnCountdownEnd;
     private bool timerActive;
     private int startSeconds = 5400;
-    public float fastesttime;
+    public float elapsedTime;
     [HideInInspector] public float currentTime;
     public TextMeshProUGUI crTimeText;
     // public TextMeshProUGUI bsTimeText;
@@ -51,7 +51,7 @@ public class CountDownTimer : MonoBehaviour
             }
         }
         //fastest time
-        fastesttime = StartSeconds - currentTime;
+        elapsedTime = StartSeconds - currentTime;
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         timeString = $"{time.Hours:00}:{time.Minutes:00}:{time.Seconds:00}";
         crTimeText.text = timeString;
@@ -87,6 +87,6 @@ public class CountDownTimer : MonoBehaviour
     }
     public float GetFastestTime()
     {
-        return fastesttime;
+        return elapsedTime;
     }
 }

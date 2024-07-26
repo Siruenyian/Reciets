@@ -12,13 +12,52 @@ public class LevelSelectMenu : MonoBehaviour
     [SerializeField] private List<LevelSelectCard> levelSelectCards = new List<LevelSelectCard>();
     private void Start()
     {
-        loadingText.text = "Loading";
-        for (int i = 0; i < levelSelectCards.Count; i++)
+        PlayerData loadedData = SaveSystem.LoadPlayer();
+        foreach (var entry in loadedData.LevelsAndScores)
         {
-            levelSelectCards[i].SetScore(
-            PlayerPrefs.GetFloat("score")
-            );
+            int level = entry.Key;
+            float score = entry.Value;
+            Debug.Log($"Level {level}: Score {score}");
         }
+        if (loadedData == null)
+        {
+            PlayerData newplayer = new PlayerData();
+            for (int i = 1; i <= levelSelectCards.Count; i++)
+            {
+                newplayer.SetScore(i, 0);
+            }
+            SaveSystem.SavePlayer(newplayer);
+        }
+        loadingText.text = "Loading";
+        for (int i = 1; i <= levelSelectCards.Count; i++)
+        {
+            levelSelectCards[i - 1].SetScore(loadedData.GetScore(i));
+            // levelSelectCards[i].SetScore(
+            // PlayerPrefs.GetFloat("score")
+            // );
+        }
+    }
+    public void Savelevel()
+    {
+        // error gtw
+        PlayerData loadedData = SaveSystem.LoadPlayer();
+        for (int i = 1; i <= levelSelectCards.Count; i++)
+        {
+            loadedData.SetScore(i, 50);
+            levelSelectCards[i - 1].SetScore(loadedData.GetScore(i));
+        }
+        SaveSystem.SavePlayer(loadedData);
+    }
+    public void ResetSave()
+    {
+        PlayerData newplayer = new PlayerData();
+        for (int i = 1; i <= levelSelectCards.Count; i++)
+        {
+            newplayer.SetScore(i, 0);
+            levelSelectCards[i - 1].SetScore(0);
+
+        }
+        SaveSystem.SavePlayer(newplayer);
     }
     public void PlayLevel(int sceneId)
     {
